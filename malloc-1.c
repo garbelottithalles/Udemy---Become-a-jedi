@@ -3,26 +3,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main(void){
     int notas, i;
-    float media;
+    float soma;
     float* nota;
-
+    srand(time(NULL));
+    
     printf("Quantas notas deseja calcular?");
     scanf("%d", &notas);
 
     nota = (float*) malloc(notas * sizeof(float));
 
     for(i = 0; i < notas; i++){
-        printf("\n%d- Nota: ", i);
-        scanf("%f", &nota[i]);
+        nota[i] = rand()%11;
     }
     for(i = 0; i < notas; i++){
-        media += nota[i];
+        soma += nota[i];
         printf("\n%d- Nota: %.2f", i, nota[i]);
-        printf("\nMedia: %.2f", media / notas);
     }
+    printf("\nMedia: %.2f", soma / notas);
     free(nota);
     nota = NULL;
 }

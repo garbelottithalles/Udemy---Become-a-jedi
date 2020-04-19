@@ -14,9 +14,8 @@ int main(void){
     printf("Quantidade de alunos: ");
     scanf("%d", &alunos);
 
-    Aluno aluno[alunos];
-    Aluno* p;
-    p = (Aluno*) malloc(alunos * sizeof(Aluno));
+    Aluno* aluno;
+    aluno = (Aluno*) malloc(alunos * sizeof(Aluno));
 
     for(i = 0; i < alunos; i++){
         printf("\nNome:");
@@ -30,12 +29,12 @@ int main(void){
     }
 
     for(i = 0; i < alunos; i++){
-        printf("\n\n-------ALUNO %d-------\n", i);
+        printf("\n\n-----------ALUNO %d-----------\n", i);
         printf("Nome: %s, Media: %.2f, Faltas: %d\n", aluno[i].nome, aluno[i].media, aluno[i].faltas);
     }
-free(p);
-p = NULL;
-
+    
+free(aluno);
+aluno = NULL;
 }
 
 /*Considere a seguinte estrutura: 
